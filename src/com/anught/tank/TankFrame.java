@@ -1,10 +1,14 @@
 package com.anught.tank;
 
 import java.awt.Frame;
+import java.awt.Graphics;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class TankFrame extends Frame {
+	int x = 200;
+	int y = 200;
+
 	public TankFrame() {
 		setSize(800, 600);
 		setResizable(false);// 不能改变大小
@@ -18,5 +22,14 @@ public class TankFrame extends Frame {
 				System.exit(0);
 			}
 		});
+	}
+
+	@Override
+	public void paint(Graphics g) {// 只要窗口动，此方法会重新调用
+		x += 10;
+		y += 10;
+
+		g.fillRect(x, y, 50, 50);
+		System.out.println("ddd");
 	}
 }
